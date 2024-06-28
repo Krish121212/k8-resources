@@ -10,4 +10,4 @@ spec:
   - name: nginx
     image: nginx
 
-## labels are mandatory in k8
+## labels are mandatory in k8. They are used to identify resources.
