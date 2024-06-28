@@ -4,7 +4,7 @@ metadata:
   name: env-test
 spec:
   containers:
-    name: nginx
+  - name: nginx
     image: nginx
     env:
     - name: Technology
