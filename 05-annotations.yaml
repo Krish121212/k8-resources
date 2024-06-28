@@ -1,0 +1,14 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: annotations
+  labels:
+    Technology: K8
+    Environment: dev
+  annotations:
+    kubernetes.io/created-by: 'KK'
+    jenkins.build.url: 'https://jenkins.devopskk.online/expense/job/backend/54'
+spec:
+  containers:
+  - name: nginx
+    image: nginx
