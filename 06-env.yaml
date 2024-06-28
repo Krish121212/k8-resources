@@ -11,3 +11,5 @@ spec:
       value: k8
     - name: environment
       value: dev
+
+# enter into container in pod and enter env to see environment variables we created above
