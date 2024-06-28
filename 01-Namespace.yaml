@@ -1,1 +1,10 @@
 # isolated project where you can create resources related to your project
+
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: expense
+  labels:
+    name: expense
+    environment: dev
+    
