@@ -25,3 +25,6 @@ spec:
       containers:
       - name: nginx
         image: nginx:stable-perl
+
+# Deployment creates new pods with latest version - we updates new image, it updated new version. 
+# Using RS we can't acheive this
