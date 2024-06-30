@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-nodeport
+spec:
+  type: NodePort
+  selector:
+    Tehnology: k8
+    Environment: dev
+    Component: frontend
+    project: expense
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80 
