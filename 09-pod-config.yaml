@@ -9,7 +9,7 @@ spec:
   - name: nginx
     image: nginx
     envFrom:
-      - configMapRef:
+    - configMapRef:
         name: devopskk
     # env:
     # - name: Technology
