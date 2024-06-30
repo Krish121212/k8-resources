@@ -13,5 +13,5 @@ spec:
     port: 80 #service port
     targetPort: 80 #Target port
 
-# kubectl describe service nginx  --- u get port num of service
+# kubectl describe service nginx  --- u get ip num of service -- this is cluster IP
 # kubectl get pod nginx -o wide --- get pod details with ip's  
