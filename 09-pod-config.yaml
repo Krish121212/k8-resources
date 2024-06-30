@@ -19,3 +19,5 @@ spec:
         configMapKeyRef:
           name: devopskk
           key: github
+
+# loggin to pod and give env
