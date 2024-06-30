@@ -8,16 +8,19 @@ spec:
   containers:
   - name: nginx
     image: nginx
-    env:
-    - name: Technology
-      valueFrom:
-        configMapKeyRef:
-          name: devopskk
-          key: Technology
-    - name: github
-      valueFrom:
-        configMapKeyRef:
-          name: devopskk
-          key: github
+    envFrom:
+      - configMapRef:
+        name: devopskk
+    # env:
+    # - name: Technology
+    #   valueFrom:
+    #     configMapKeyRef:
+    #       name: devopskk
+    #       key: Technology
+    # - name: github
+    #   valueFrom:
+    #     configMapKeyRef:
+    #       name: devopskk
+    #       key: github
 
 # loggin to pod and give env
