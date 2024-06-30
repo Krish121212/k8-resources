@@ -13,4 +13,4 @@ spec:
   - protocol: TCP
     port: 80
     targetPort: 80
-    nodePort: 40000 #fixing nodeport number
+    nodePort: 32000 #fixing nodeport number
