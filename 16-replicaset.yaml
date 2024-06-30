@@ -24,4 +24,9 @@ spec:
       - name: nginx
         image: nginx:stable-perl
 
+# Replica set can't do deployments, i.e you updated some new version image it can't take that. 
+# Only responsibilty is to run replica's. ou case 3
+# To over come this we can go to Deployment set.
+
+
 
