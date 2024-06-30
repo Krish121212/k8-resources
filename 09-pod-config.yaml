@@ -1,0 +1,21 @@
+# we are reffering the configurations given in 08-config file for this pod
+
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pod-config
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    env:
+    - name: Technology
+      valueFrom:
+        configMapKeyRef:
+          name: devopskk
+          key: Technology
+    - name: github
+      valueFrom:
+        configMapKeyRef:
+          name: devopskk
+          key: github
