@@ -1,0 +1,15 @@
+# service attachment with pods - through the labels
+
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nginx
+  labels:
+    Tehnology: k8
+    Environment: dev
+    Component: frontend
+    project: expense
+spec:
+  containers:
+  - name: nginx
+    image: nginx

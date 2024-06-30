@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  selector:
+    Tehnology: k8
+    Environment: dev
+    Component: frontend
+    project: expense
+  ports:
+  - protocal: TCP
+    ports: 80 #service port
+    Targetport: 80 #Target port
