@@ -14,7 +14,7 @@ spec:
       tier: frontend
       app: nginx
   # below is called pod defination
-  templete:
+  template:
     metadata:
       labels:
         tier: frontend
