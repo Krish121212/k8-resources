@@ -1,9 +1,9 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: nginx-nodeport
+  name: nginx-lb
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     Tehnology: k8
     Environment: dev
@@ -13,6 +13,4 @@ spec:
   - protocol: TCP
     port: 80
     targetPort: 80
-    nodePort: 32000 #fixing nodeport number
-
-    # check where the pod has been created(node). attach the above port to that ip in security group.
+    nodePort: 32000
