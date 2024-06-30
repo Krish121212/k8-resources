@@ -9,6 +9,6 @@ spec:
     Component: frontend
     project: expense
   ports:
-  - protocal: TCP
-    ports: 80 #service port
+  - protocol: TCP
+    port: 80 #service port
     Targetport: 80 #Target port
