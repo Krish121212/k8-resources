@@ -1,7 +1,7 @@
 # we are reffering the configurations given in 08-config file for this pod
 
-kind: Pod
 apiVersion: v1
+kind: Pod
 metadata:
   name: pod-config
 spec:
