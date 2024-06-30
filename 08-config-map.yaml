@@ -1,0 +1,10 @@
+# 
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: devopskk
+data:
+  Technology: k8
+  environment: dev
+  github: "https://github.com/Krish121212/k8-resources"
