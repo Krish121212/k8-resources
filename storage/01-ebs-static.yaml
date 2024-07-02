@@ -29,37 +29,37 @@ spec:
   resources:
     requests:
       storage: 5Gi # pod pulling volume from EBS, max 50GB(as i created EBS with 50GB) min our wish
-# ---
-# # to claim volume storage by POD
-# apiVersion: v1
-# kind: Pod
-# metadata:
-#   name: nginx-static
-#   labels:
-#     purpose: ebs-static
-#     project: expense
-# spec:
-#   containers:
-#   - name: nginx
-#     image: nginx
-#     volumeMounts:
-#     - name: persistent-storage
-#       mountPath: /usr/share/nginx/html
-#   volumes:
-#   - name: persistent-storage
-#     persistentVolumeClaim:
-#       claimName: ebs-static
-# ---
-# kind: Service
-# apiVersion: v1
-# metadata:
-#   name: nginx-lb
-# spec:
-#   type: LoadBalancer
-#   selector:
-#     purpose: ebs-static
-#     project: expense
-#   ports:
-#   - protocol: TCP
-#     port: 80
-#     targetPort: 80
+---
+# to claim volume storage by POD
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-static
+  labels:
+    purpose: ebs-static
+    project: expense
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - name: persistent-storage
+      mountPath: /usr/share/nginx/html
+  volumes:
+  - name: persistent-storage
+    persistentVolumeClaim:
+      claimName: ebs-static
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-lb
+spec:
+  type: LoadBalancer
+  selector:
+    purpose: ebs-static
+    project: expense
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
