@@ -45,6 +45,8 @@ spec:
     volumeMounts:
     - name: persistent-storage
       mountPath: /usr/share/nginx/html
+  nodeSelector: # volume in east-1c so, i can select node which is in 1c
+    topology.kubernetes.io/zone: us-east-1c
   volumes:
   - name: persistent-storage
     persistentVolumeClaim:
