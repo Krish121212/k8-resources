@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ebs-dynamic
+spec:
+  storageClassName: ebs-expense
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi # pod pulling volume from EBS, max 50GB(as i created EBS with 50GB) min our wish
+---
+# to claim volume storage by POD
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-dynamic
+  labels:
+    purpose: ebs-dynamic
+    project: expense
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - name: persistent-storage
+      mountPath: /usr/share/nginx/html
+  nodeSelector: # volume in east-1c so, i can select node which is in 1c
+    topology.kubernetes.io/zone: us-east-1c
+  volumes:
+  - name: persistent-storage
+    persistentVolumeClaim:
+      claimName: ebs-dynamic
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-lb
+spec:
+  type: LoadBalancer
+  selector:
+    purpose: ebs-dynamic
+    project: expense
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
