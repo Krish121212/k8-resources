@@ -17,18 +17,18 @@ spec:
     volumeHandle: vol-0d8e431020084ddc3
 ---
 #to alot storage for POD
-# apiVersion: v1
-# kind: PersistentVolumeClaim
-# metadata:
-#   name: ebs-static
-# spec:
-#   storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
-#   volumeName: ebs-static #PV name
-#   accessModes:
-#     - ReadWriteOnce
-#   resources:
-#     requests:
-#       storage: 5Gi # pod pulling volume from EBS, max 50GB(as i created EBS with 50GB) min our wish
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ebs-static
+spec:
+  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
+  volumeName: ebs-static #PV name
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi # pod pulling volume from EBS, max 50GB(as i created EBS with 50GB) min our wish
 # ---
 # # to claim volume storage by POD
 # apiVersion: v1
