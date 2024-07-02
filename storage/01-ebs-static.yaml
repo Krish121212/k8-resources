@@ -1,0 +1,65 @@
+apiVersion: v1
+# with PV external EBS volume is represented in cluster
+kind: PersistentVolume
+metadata:
+  name: ebs-static
+spec:
+## read write once on the volume storage for single node(ex: Hard disk) as we can do only one operation in EBS
+## read write many - read write by many nodes
+## read only many - read only by many nodes.
+  accessModes:
+  - ReadWriteOnce 
+  capacity:
+    storage: 50Gi
+  csi:
+    driver: ebs.csi.aws.com
+    fsType: ext4
+    volumeHandle: vol-0d8e431020084ddc3
+---
+#to alot storage for POD
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: ebs-static
+# spec:
+#   storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
+#   volumeName: ebs-static #PV name
+#   accessModes:
+#     - ReadWriteOnce
+#   resources:
+#     requests:
+#       storage: 5Gi # pod pulling volume from EBS, max 50GB(as i created EBS with 50GB) min our wish
+# ---
+# # to claim volume storage by POD
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: nginx-static
+#   labels:
+#     purpose: ebs-static
+#     project: expense
+# spec:
+#   containers:
+#   - name: nginx
+#     image: nginx
+#     volumeMounts:
+#     - name: persistent-storage
+#       mountPath: /usr/share/nginx/html
+#   volumes:
+#   - name: persistent-storage
+#     persistentVolumeClaim:
+#       claimName: ebs-static
+# ---
+# kind: Service
+# apiVersion: v1
+# metadata:
+#   name: nginx-lb
+# spec:
+#   type: LoadBalancer
+#   selector:
+#     purpose: ebs-static
+#     project: expense
+#   ports:
+#   - protocol: TCP
+#     port: 80
+#     targetPort: 80
