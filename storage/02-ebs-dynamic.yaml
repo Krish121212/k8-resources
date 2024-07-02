@@ -8,7 +8,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 3Gi # pod pulling volume from EBS, max 50GB(as i created EBS with 50GB) min our wish
+      storage: 3Gi # PVC asks storage class for memory
 ---
 # to claim volume storage by POD
 apiVersion: v1
