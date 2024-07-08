@@ -7,4 +7,5 @@ parameters:
   provisioningMode: efs-ap
   fileSystemId: fs-0564bc46c299f2a18
   directoryPerms: "700"
-  basePath: "/expense" # optional - created by admin, we can do our amendments in expense using our SC
+  basePath: "/expense" # optional - created by admin, we can do our amendments in expense using our SC - 
+  # Access points in EFS volume - basepath. data store here.
