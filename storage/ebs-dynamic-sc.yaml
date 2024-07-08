@@ -1,3 +1,5 @@
+# created by k8 admin team
+
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
@@ -6,7 +8,7 @@ reclaimPolicy: Retain
 provisioner: ebs.csi.aws.com
 volumeBindingMode: WaitForFirstConsumer
 
-#Reclaim policy
+# Reclaim policy
 #1. Delete: after deleting pod: Volume and PV will also get deleted
 #2. Retain: after deleting pod: volume and PV will be available with data
 #3. Recycle: after deleting pod: volume and PV will be available but not with data
