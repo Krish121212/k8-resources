@@ -1,5 +1,5 @@
 # PV
----
+
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -15,3 +15,19 @@ spec:
   csi:
     driver: efs.csi.aws.com
     volumeHandle: "fs-03c0282264d934d0e"
+
+---
+# PVC
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: efs-static-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
+  volumeName: efs-static
+  resources:
+    requests:
+      storage: 3Gi
