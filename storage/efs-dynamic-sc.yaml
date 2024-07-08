@@ -1,0 +1,10 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: efs-dynamic
+provisioner: efs.csi.aws.com
+parameters:
+  provisioningMode: efs-ap
+  fileSystemId: fs-0564bc46c299f2a18
+  directoryPerms: "700"
+  basePath: "/expense" # optional - created by admin, we can do our amendments in expense using our SC
