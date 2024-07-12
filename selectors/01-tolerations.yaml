@@ -19,4 +19,4 @@ spec:
 # image pull policy two types: 1. IfNotPresent 2.Always
 # Always pull a image even if it's changes or not - best option as IfNotPresent only pulls image it it's not present
 
-# value is mandatory if you are using operator equal
+# value is mandatory if you are using operator equal,we also have operator exist etc..,
