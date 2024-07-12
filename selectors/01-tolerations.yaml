@@ -1,4 +1,3 @@
-# Tolerations
 apiVersion: v1
 kind: Pod
 metadata:
@@ -19,4 +18,6 @@ spec:
 # image pull policy two types: 1. IfNotPresent 2.Always
 # Always pull a image even if it's changes or not - best option as IfNotPresent only pulls image it it's not present
 
-# value is mandatory if you are using operator equal,we also have operator exist etc..,
+# value is mandatory if you are using operator equal,we also have operator exist,not in,in,not exist etc..,
+
+#NodeSelector won't work for taints, as it works on labels
