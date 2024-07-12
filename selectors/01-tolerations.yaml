@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    env: test
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    imagePullPolicy: Always
+  tolerations:
+  - key: "project"
+    operator: "Equal"
+    value: "expense"
+    effect: "NoSchedule"
+
+# image pull policy two types: 1. IfNotPresent 2.Always
+# Always pull a image even if it's changes or not - best option as IfNotPresent only pulls image it it's not present
+
+# value is mandatory if you are using operator equal
