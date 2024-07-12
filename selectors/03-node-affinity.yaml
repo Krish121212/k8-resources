@@ -5,6 +5,8 @@ metadata:
 spec:
   affinity:
     nodeAffinity:
+  # scheduler tries the asked node, but it cant schedule because it's atainted node. 
+  # since it is only preferred it can schedule on to differnt node
       preferredDuringSchedulingIgnoredDuringExecution:
       - weight: 1
         preference:
