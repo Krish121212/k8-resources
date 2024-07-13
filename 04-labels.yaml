@@ -11,3 +11,4 @@ spec:
     image: nginx
 
 ## labels are mandatory in k8. They are used to identify resources.
+# To create the internal resources, i.e inside of K8, They won't allow special characters
