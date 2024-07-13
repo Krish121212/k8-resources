@@ -9,8 +9,9 @@ spec:
   containers:
   - name: nginx
     image: nginx
-    imagePullPolicy: Always # keep this as always
+    imagePullPolicy: Always
 ---
+# i want pod-2 to go to same node where pod-1 is available,so i use pod affinity
 apiVersion: v1
 kind: Pod
 metadata:
@@ -32,4 +33,27 @@ spec:
   containers:
   - name: nginx
     image: nginx
-    imagePullPolicy: Always # keep this as always
+    imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-3
+  labels:
+    name: pod-1
+    purpose: affinity
+spec:
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: name
+            operator: In
+            values:
+            - pod-1
+        topologyKey: "kubernetes.io/hostname"
+  containers:
+  - name: nginx
+    image: nginx
+    imagePullPolicy: Always
