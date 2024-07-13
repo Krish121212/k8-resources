@@ -9,9 +9,8 @@ spec:
   containers:
   - name: nginx
     image: nginx
-    imagePullPolicy: Always
+    imagePullPolicy: Always # keep this as always
 ---
-# i want pod-2 to go to same node where pod-1 is available,so i use pod affinity
 apiVersion: v1
 kind: Pod
 metadata:
@@ -33,4 +32,4 @@ spec:
   containers:
   - name: nginx
     image: nginx
-    imagePullPolicy: Always
+    imagePullPolicy: Always # keep this as always
