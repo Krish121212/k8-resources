@@ -9,7 +9,7 @@ metadata:
     tier: webtier
 spec:
   replicas: 3
-  # We are using rolling update strategy here, So no down time for application.
+  # We are using Rolling Update strategy here, So no down time for application.
   strategy:
     type: RollingUpdate
     rollingUpdate:
