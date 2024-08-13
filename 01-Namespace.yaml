@@ -7,4 +7,3 @@ metadata:
   labels:
     name: expense
     environment: dev
-    
