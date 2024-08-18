@@ -9,7 +9,7 @@ spec:
   selector:
     matchLabels:
       name: app
-  templete:
+  template:
     metadata: 
       labels:
         name: app
@@ -21,4 +21,3 @@ spec:
         image: nginx:1.16-alpine
         ports:
         - containerPort: 80
-
