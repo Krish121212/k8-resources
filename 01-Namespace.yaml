@@ -7,3 +7,25 @@ metadata:
   labels:
     name: expense
     environment: dev
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: my-namespace-quota
+  namespace: expense
+spec:
+  hard:
+    # CPU request total cannot exceed 4 CPU cores
+    requests.cpu: "4"
+    # Memory request total cannot exceed 8Gi
+    requests.memory: "8Gi"
+    # CPU limit total cannot exceed 8 CPU cores
+    limits.cpu: "8"
+    # Memory limit total cannot exceed 16Gi
+    limits.memory: "16Gi"
+    # Total number of pods cannot exceed 20
+    pods: "20"
+    # Total number of services cannot exceed 10
+    services: "10"
+    # Total number of persistent volume claims cannot exceed 10
+    persistentvolumeclaims: "10"
