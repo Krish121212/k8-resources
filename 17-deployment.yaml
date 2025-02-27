@@ -2,14 +2,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
-  # deployment resource labels
   labels:
     name: nginx
     purpose: deployment
     tier: webtier
 spec:
   replicas: 3
-  # We are using Rolling Update strategy here, So no down time for application.
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -20,7 +18,6 @@ spec:
       name: nginx
       purpose: deployment
       tier: webtier
-  # pod defination
   template:
     metadata:
       labels:
@@ -28,9 +25,30 @@ spec:
         purpose: deployment
         tier: webtier
     spec:
+      restartPolicy: Always
       containers:
       - name: nginx
         image: nginx:stable-perl
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 5
+
 
 # Deployment creates new pods with latest version - we updates new image, it updated new version. 
 # Using RS we can't acheive this
