@@ -14,3 +14,4 @@ spec:
     image: nginx
 
 # To create the external resources, i.e outside of K8, Also they allow special characters
+# Can store complex, multi-line data.
