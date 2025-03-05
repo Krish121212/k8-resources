@@ -13,5 +13,6 @@ spec:
   - name: nginx
     image: nginx
 
-# To create the external resources, i.e outside of K8, Also they allow special characters
-# Can store complex, multi-line data.
+# To create the external resources, i.e outside of K8,  
+# Controllers and external tools can read annotations and act based on their values
+# Also they allow special characters and Can store complex, multi-line data.
