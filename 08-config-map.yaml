@@ -8,3 +8,5 @@ data:
   Technology: k8
   environment: dev
   github: "https://github.com/Krish121212/k8-resources"
+
+# To store configs, like url's, app settings etc., not confidential info and they are NOT encrypted
