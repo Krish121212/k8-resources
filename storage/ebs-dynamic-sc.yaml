@@ -9,6 +9,6 @@ provisioner: ebs.csi.aws.com
 volumeBindingMode: WaitForFirstConsumer
 
 # Reclaim policy
-#1. Delete: after deleting pod: Volume and PV will also get deleted
-#2. Retain: after deleting pod: volume and PV will be available with data
-#3. Recycle: after deleting pod: volume and PV will be available but not with data
+#1. Delete: after deleting pvc: Volume and PV will also get deleted
+#2. Retain: after deleting pvc: volume and PV will be available with data
+#3. Recycle: after deleting pvc: volume and PV will be available but not with data
